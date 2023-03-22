@@ -8,7 +8,6 @@ const fizzbuzz = (num) => {
   } else {
     return num;
   };
-  
 }
 
 
