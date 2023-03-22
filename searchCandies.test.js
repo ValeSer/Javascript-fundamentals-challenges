@@ -8,4 +8,8 @@ describe('searchCandies', () => {
   it('shows one candy', () => {
     expect(searchCandies('Ma', 2)).toEqual(['Mars']);
   });
+
+  it('is case insensitive', () => {
+    expect(searchCandies('ma', 10)).toEqual(['Mars','Maltesers']);
+  });
 })

@@ -12,12 +12,12 @@ const candies = [
   { name: 'Raffaello', price: 7.99 },
   { name: 'Gummi bears', price: 10.99 },
   { name: 'Fraise Tagada', price: 5.99 }
-];
+];  
 
 const searchCandies = (candyPrefix, price) => {
   return candies
   .filter((candy) => {
-    return candy.name.startsWith(candyPrefix) && 
+    return candy.name.toLowerCase().startsWith(candyPrefix.toLowerCase()) && 
     candy.price <= price
   })
   .map(candy => {
