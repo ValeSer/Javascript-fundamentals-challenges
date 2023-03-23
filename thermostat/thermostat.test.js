@@ -42,4 +42,12 @@ describe('Thermostat', () => {
     };
     expect(thermostat.getTemperature()).toEqual(32);
   });
+
+  it('resets the thermostat', () => {
+    for (let i = 0 ; i < 20 ; i++) {
+      thermostat.up();
+    };
+    thermostat.reset();
+    expect(thermostat.getTemperature()).toEqual(20);
+  })
 }); 
