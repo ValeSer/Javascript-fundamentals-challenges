@@ -20,22 +20,26 @@ describe('Thermostat', () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toEqual(19);
   }); 
-  it('returns temperature of 25', () => {
+  it('returns temperature of 25 PSMode on', () => {
     thermostat.setPowerSavingMode(true);
-    thermostat.up();
-    thermostat.up();
-    thermostat.up();
-    thermostat.up();
-    thermostat.up();
-    thermostat.up();
-
+    for (let i = 0 ; i < 20 ; i++) {
+      thermostat.up();
+    };
     expect(thermostat.getTemperature()).toEqual(25);
   });
 
   it('returns temperature of minimum 10', () => {
     for (let i = 0 ; i < 20 ; i++) {
       thermostat.down();
-    }
+    };
     expect(thermostat.getTemperature()).toEqual(10);
   }); 
+
+  it('returns temperature of 32 PSMode off', () => {
+    thermostat.setPowerSavingMode(false);
+    for (let i = 0 ; i < 20 ; i++) {
+      thermostat.up();
+    };
+    expect(thermostat.getTemperature()).toEqual(32);
+  });
 }); 
