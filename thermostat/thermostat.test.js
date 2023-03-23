@@ -50,4 +50,32 @@ describe('Thermostat', () => {
     thermostat.reset();
     expect(thermostat.getTemperature()).toEqual(20);
   })
+
+  it('returns medium energy usage at 25 degrees', () => {
+    for (let i = 0 ; i < 5 ; i++) {
+      thermostat.up();
+    };
+    expect(thermostat.getEnergyUsage()).toEqual('Medium usage');
+  })
+
+  it('returns medium energy usage at 18 degrees', () => {
+    thermostat.down();
+    thermostat.down();
+    expect(thermostat.getEnergyUsage()).toEqual('Medium usage');
+  })
+
+  it('returns low energy usage at 17 degrees', () => {
+    thermostat.down();
+    thermostat.down();
+    thermostat.down();
+    expect(thermostat.getEnergyUsage()).toEqual('Low usage');
+  })
+
+  it('returns high energy usage at 26 degrees', () => {
+    thermostat.setPowerSavingMode(false);
+    for (let i = 0 ; i < 6 ; i++) {
+      thermostat.up();
+    };
+    expect(thermostat.getEnergyUsage()).toEqual('High usage');
+  })
 }); 
