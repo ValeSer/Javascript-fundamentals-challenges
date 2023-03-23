@@ -15,4 +15,13 @@ describe('Thermostat', () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toEqual(21);
   }); 
+  it('returns temperature of 25', () => {
+    thermostat.setPowerSavingMode(true);
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    thermostat.up();
+    expect(thermostat.getTemperature()).toEqual(25);
+  });
 }); 
