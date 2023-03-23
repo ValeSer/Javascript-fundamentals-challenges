@@ -9,7 +9,7 @@ describe('Thermostat', () => {
   it('returns an initial temperature of 20 degrees', () => {
     expect(thermostat.getTemperature()).toEqual(20);
   }); 
-  
+
   it('returns temperature of 22 when raise twice', () => {
     thermostat.up();
     thermostat.up();
@@ -31,4 +31,11 @@ describe('Thermostat', () => {
 
     expect(thermostat.getTemperature()).toEqual(25);
   });
+
+  it('returns temperature of minimum 10', () => {
+    for (let i = 0 ; i < 20 ; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.getTemperature()).toEqual(10);
+  }); 
 }); 
