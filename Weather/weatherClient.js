@@ -10,3 +10,5 @@ class WeatherClient {
       .then((response) => response.json()); //converts the response from json to ann object
   }
 }
+
+module.exports = WeatherClient;
