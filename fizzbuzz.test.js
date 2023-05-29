@@ -25,4 +25,3 @@ describe('fizzbuzz', () => {
     expect(fizzbuzz(20)).toBe('Buzz');
   });
 });
-
